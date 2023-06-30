@@ -11,18 +11,21 @@ SimpleLog::SimpleLog(void (*LogOutFun)(char *, uint8_t))
 
 void SimpleLog::LogD(char *format, ...)
 {
+#ifdef LOG_EN
     memset(LogBuf, 0, LOG_OUT_BUF_LEN);
     memset(Buf, 0, FORMATTER_LEN);
     va_start(factor, format);
 
     MsgFormatting(format);
     va_end(factor);
-    
+
     _LogOutFun(LogBuf, (uint8_t)strlen(LogBuf));
+#endif
 }
 
 void SimpleLog::LogV(char *format, ...)
 {
+#ifdef LOG_EN
     memset(LogBuf, 0, LOG_OUT_BUF_LEN);
     memset(Buf, 0, FORMATTER_LEN);
     va_start(factor, format);
@@ -39,10 +42,12 @@ void SimpleLog::LogV(char *format, ...)
 #endif
 
     _LogOutFun(LogBuf, (uint8_t)strlen(LogBuf));
+#endif
 }
 
 void SimpleLog::LogI(char *format, ...)
 {
+#ifdef LOG_EN
     memset(LogBuf, 0, LOG_OUT_BUF_LEN);
     memset(Buf, 0, FORMATTER_LEN);
     va_start(factor, format);
@@ -59,10 +64,12 @@ void SimpleLog::LogI(char *format, ...)
 #endif
 
     _LogOutFun(LogBuf, (uint8_t)strlen(LogBuf));
+#endif
 }
 
 void SimpleLog::LogW(char *format, ...)
 {
+#ifdef LOG_EN
     memset(LogBuf, 0, LOG_OUT_BUF_LEN);
     memset(Buf, 0, FORMATTER_LEN);
     va_start(factor, format);
@@ -79,10 +86,12 @@ void SimpleLog::LogW(char *format, ...)
 #endif
 
     _LogOutFun(LogBuf, (uint8_t)strlen(LogBuf));
+#endif
 }
 
 void SimpleLog::LogE(char *format, ...)
 {
+#ifdef LOG_EN
     memset(LogBuf, 0, LOG_OUT_BUF_LEN);
     memset(Buf, 0, FORMATTER_LEN);
     va_start(factor, format);
@@ -99,6 +108,7 @@ void SimpleLog::LogE(char *format, ...)
 #endif
 
     _LogOutFun(LogBuf, (uint8_t)strlen(LogBuf));
+#endif
 }
 
 void SimpleLog::MsgFormatting(char *format)

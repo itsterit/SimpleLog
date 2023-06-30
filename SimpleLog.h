@@ -13,6 +13,7 @@
 #define FORMATTER_LEN 31
 #define LOG_OUT_BUF_LEN 255
 
+#define LOG_EN
 #define VERBOSE_LOG_COLOR_EN
 #define INFO_LOG_COLOR_EN
 #define WARNING_LOG_COLOR_EN
